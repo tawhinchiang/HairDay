@@ -10,7 +10,8 @@
   "dependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "dayjs": "^1.11.10",
-    "json-server": "^1.0.0-alpha.21"
+    "json-server": "^1.0.0-alpha.21",
+    "node": "^25.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
