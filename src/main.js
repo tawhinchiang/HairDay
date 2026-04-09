@@ -8,5 +8,6 @@ import "./styles/schedule.css"
 
 //js
 import "./modules/form/submit.js"
-import "./modules/schedules/load.js"
+// import "./modules/schedules/load.js"
 import "./modules/page-load.js"
+import  "./modules/form/date-change.js"
