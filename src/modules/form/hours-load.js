@@ -2,22 +2,23 @@ import dayjs from 'dayjs'
 import { openingHours } from '../../utils/opening-hours.js'
 import { hoursCLick } from './hours-click.js'
 const hours = document.getElementById("hours")
-export function hoursLoad(date) {
+export function hoursLoad({date,dailySchedules}) {
 
     //limpa a lista de horarios
     hours.innerHTML = ""
-    
+    const unavailableHours = dailySchedules.map(schedule => dayjs(schedule.when).format("H:mm"))
     const opening = openingHours.map((hour) => {
         //recupera somente a hora
 
         const [scheduleHour] = hour.split(":")
 
         //adiciona a hora na date e verificar se esta no passado
-        const isHourPast = dayjs(date).add(scheduleHour, "hour").isAfter(dayjs())
+        const isHourpast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
         //define se o horario esta disponivel
+        const available = !unavailableHours.includes(hour) && !isHourpast
         return {
             hour,
-            available: isHourPast
+            available
         }
     })
 
